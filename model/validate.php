@@ -11,7 +11,7 @@ function validForm()
 
     if (!validOptions($f3->get('opt'))) {
         $isValid = false;
-        $f3->set("errors['opt']", "Invalid selection");
+        $f3->set("errors['opt']", "No options selected");
     }
     return $isValid;
 }
@@ -26,7 +26,7 @@ function validOptions($opt)
     global $f3;
     //options are optional
     if (empty($opt)) {
-        return true;
+        return false;
     }
     //But if there are options, we need to make sure they're valid
     foreach ($opt as $option) {
